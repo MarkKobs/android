@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">button</string>
+    <drawable name="clr_normal">#FFFFFF</drawable>
+    <drawable name="clr_pressed">#8B864E</drawable>
+</resources>

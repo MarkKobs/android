@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/name"
+        android:text="姓名："
+        android:layout_margin="40dp"/>
+    <EditText
+        android:id="@+id/e1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="请输入你的名字"
+        android:layout_toRightOf="@+id/name"
+        android:layout_marginTop="40dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/phone"
+        android:text="电话："
+        android:layout_below="@+id/name"
+        android:layout_margin="40dp"/>
+    <EditText
+        android:id="@+id/e2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="请输入你的电话"
+        android:layout_below="@+id/e1"
+        android:layout_toRightOf="@+id/phone"
+        android:layout_marginTop="40dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/address"
+        android:text="地址："
+        android:layout_below="@+id/phone"
+        android:layout_margin="40dp"/>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="请输入你的地址"
+        android:id="@+id/e3"
+        android:layout_marginTop="40dp"
+        android:layout_toRightOf="@+id/address"
+        android:layout_below="@+id/e2"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="保存"
+        android:id="@+id/save"
+        android:layout_below="@+id/address"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"/>
+</RelativeLayout>

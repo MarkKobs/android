@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/add_item"
+        android:title="增加"
+        app:showAsAction="ifRoom"/>
+    <!--<item-->
+        <!--android:id="@+id/edit_item"-->
+        <!--android:title="修改"-->
+        <!--app:showAsAction="ifRoom"/>-->
+    <!--<item-->
+        <!--android:id="@+id/remove_item"-->
+        <!--android:title="删除"-->
+        <!--app:showAsAction="ifRoom"/>-->
+    <!--决定把修改和删除按钮放到联系人详细详细的页面,后面有时间修改成侧滑删除的效果-->
+</menu>

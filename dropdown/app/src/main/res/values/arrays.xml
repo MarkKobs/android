@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="languages">
+        <item>c语言</item>
+        <item>java </item>
+        <item>php</item>
+        <item>xml</item>
+        <item>html</item>
+    </string-array>
+    <string-array name="majors">
+        <item>软件工程</item>
+        <item>物联网工程</item>
+        <item>网络工程</item>
+        <item>信息安全工程</item>
+        <item>计算机科学</item>
+        <item>通信工程</item>
+    </string-array>
+</resources>

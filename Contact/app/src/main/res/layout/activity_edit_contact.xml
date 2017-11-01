@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/name2"
+        android:text="姓名："
+        android:layout_margin="40dp"/>
+    <EditText
+        android:id="@+id/edit1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="请输入你的名字"
+        android:layout_toRightOf="@+id/name2"
+        android:layout_marginTop="40dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/phone2"
+        android:text="电话："
+        android:layout_below="@+id/name2"
+        android:layout_margin="40dp"/>
+    <EditText
+        android:id="@+id/edit2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="请输入你的电话"
+        android:layout_below="@+id/edit1"
+        android:layout_toRightOf="@+id/phone2"
+        android:layout_marginTop="40dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/address2"
+        android:text="地址："
+        android:layout_below="@+id/phone2"
+        android:layout_margin="40dp"/>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="请输入你的地址"
+        android:id="@+id/edit3"
+        android:layout_marginTop="40dp"
+        android:layout_toRightOf="@+id/address2"
+        android:layout_below="@+id/edit2"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/edit3"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true">
+
+        <Button
+            android:id="@+id/delete"
+            style="@android:style/Widget.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:text="删除" />
+
+        <Button
+            android:id="@+id/save2"
+            style="@android:style/Widget.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="保存" />
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,28 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    <style name="processbar_small" parent="@android:style/Widget.ProgressBar.Large">
+        <item name="android:minWidth">24dip</item>
+        <item name="android:maxWidth">24dip</item>
+        <item name="android:minHeight">24dip</item>
+        <item name="android:maxHeight">24dip</item>
+    </style>
+    <style name="processbar_middle" parent="@android:style/Widget.ProgressBar.Large">
+        <item name="android:minWidth">33dip</item>
+        <item name="android:maxWidth">33dip</item>
+        <item name="android:minHeight">33dip</item>
+        <item name="android:maxHeight">33dip</item>
+    </style>
+    <style name="processbar_large" parent="@android:style/Widget.ProgressBar.Large">
+        <item name="android:minWidth">44dip</item>
+        <item name="android:maxWidth">44dip</item>
+        <item name="android:minHeight">44dip</item>
+        <item name="android:maxHeight">44dip</item>
+    </style>
+</resources>
