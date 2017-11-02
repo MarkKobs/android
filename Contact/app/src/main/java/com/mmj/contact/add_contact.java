@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
@@ -22,6 +23,8 @@ public class add_contact extends AppCompatActivity { //add contactors' activity
     private Button savebutton;
     private EditText edit1,edit2,edit3;
     private DBService dbHelper;//sqlite database helper
+    private LocalBroadcastManager localBroadcastManager; //for sending broadcast
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,8 +48,9 @@ public class add_contact extends AppCompatActivity { //add contactors' activity
                     values.put("ADDRESS",address);
                     db.insert("contact",null,values);
                     values.clear();
-                    Intent intent=new Intent(add_contact.this,MainActivity.class);
-                    startActivity(intent);
+                    localBroadcastManager =LocalBroadcastManager.getInstance(add_contact.this);
+                    Intent intent = new Intent("com.mmj.contact.LOCAL_BROADCAST");
+                    localBroadcastManager.sendBroadcast(intent);
                     finish();
                 }
             }

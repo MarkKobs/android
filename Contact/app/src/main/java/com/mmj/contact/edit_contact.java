@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.nfc.Tag;
 import android.provider.Settings;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -27,7 +28,12 @@ public class edit_contact extends AppCompatActivity implements View.OnClickListe
     private Button edit,delete;
     private SQLiteDatabase db;
     private Cursor cursor;
-    private int data_index;
+    private String data_index;
+    private String c[];
+    private String tempname;
+
+    private LocalBroadcastManager localBroadcastManager; //for sending broadcast
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,9 +48,11 @@ public class edit_contact extends AppCompatActivity implements View.OnClickListe
         dbHelper=new DBService(this,"contact.db",null,2);
         db=dbHelper.getWritableDatabase();
         Intent intent=getIntent();
-        data_index=intent.getIntExtra("extra_data",4)+1;//from 0 starting , index+1 :change to starting from 1
-        Log.d("extra_data",String.valueOf(data_index));
-        cursor=db.rawQuery("select * from CONTACT where ID=?",new String[]{String.valueOf(data_index)});
+        data_index=intent.getStringExtra("data2");
+        c = data_index.split("\t\t\t\t\t");
+        Log.d("data2",String.valueOf(data_index));
+        tempname= c[0];
+        cursor=db.rawQuery("select * from CONTACT where name=?",new String[]{String.valueOf(tempname)});
         try{
             if(cursor.moveToFirst()) {
                 nameEdit.setText(cursor.getString(cursor.getColumnIndex("NAME")));
@@ -56,6 +64,7 @@ public class edit_contact extends AppCompatActivity implements View.OnClickListe
             Log.d("index error","index out of bound");
         }
     }
+
     @Override
     public void onClick(View v){
         switch (v.getId()){
@@ -67,18 +76,19 @@ public class edit_contact extends AppCompatActivity implements View.OnClickListe
                 values.put("NAME",name);
                 values.put("PHONE",phone);
                 values.put("ADDRESS",address);
-                db.update("CONTACT",values,"ID=?",new String[]{String.valueOf(data_index)});//把数据更新成新的
-                Toast.makeText(this, "edited", Toast.LENGTH_SHORT).show();
+                Log.d("name",String.valueOf(name));
+                db.update("CONTACT",values,"name=?",new String[]{String.valueOf(tempname)});//把数据更新成新的
                 values.clear();
-                Intent intent=new Intent(edit_contact.this,MainActivity.class);
-                startActivity(intent);
+                localBroadcastManager =LocalBroadcastManager.getInstance(this);
+                Intent intent = new Intent("com.mmj.contact.LOCAL_BROADCAST");
+                localBroadcastManager.sendBroadcast(intent);
                 finish();
                 break;
             case R.id.delete:
-                db.delete("CONTACT","ID=?",new String[]{String.valueOf(data_index)});
-                Toast.makeText(this, "deleted", Toast.LENGTH_SHORT).show();
-                Intent intent2=new Intent(edit_contact.this,MainActivity.class);
-                startActivity(intent2);
+                db.delete("CONTACT","name=?",new String[]{String.valueOf(tempname)});
+                localBroadcastManager =LocalBroadcastManager.getInstance(this);
+                Intent intent_delete = new Intent("com.mmj.contact.LOCAL_BROADCAST");
+                localBroadcastManager.sendBroadcast(intent_delete);
                 finish();
                 break;
         }
