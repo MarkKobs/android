@@ -10,6 +10,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,10 +21,6 @@ import android.widget.Toast;
 
 import java.util.Vector;
 
-import static android.R.attr.data;
-import static android.R.attr.id;
-import static android.R.attr.supportsAssist;
-import static android.R.attr.vendor;
 
 //for show:main page
 public class MainActivity extends AppCompatActivity{
@@ -74,9 +71,10 @@ public class MainActivity extends AppCompatActivity{
         Cursor cursor=db.query("contact",null,null,null,null,null,null);
         if(cursor.moveToFirst()){
             do{
-                String name=cursor.getString(cursor.getColumnIndex("NAME"));
-                String phone=cursor.getString(cursor.getColumnIndex("PHONE"));
-                String address=cursor.getString(cursor.getColumnIndex("ADDRESS"));
+                Log.d("circle","1111");
+                String name=cursor.getString(cursor.getColumnIndex("name"));
+                String phone=cursor.getString(cursor.getColumnIndex("phone"));
+                String address=cursor.getString(cursor.getColumnIndex("address"));
                 String info=name+"\t\t\t\t\t"+phone+"\t\t\t\t\t"+address;
                 vector.addElement(info);//一条联系人信息加入容器vector中
             }while(cursor.moveToNext());

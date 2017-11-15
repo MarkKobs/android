@@ -43,9 +43,9 @@ public class add_contact extends AppCompatActivity { //add contactors' activity
                     String address=edit3.getText().toString();
                     SQLiteDatabase db=dbHelper.getWritableDatabase();
                     ContentValues values=new ContentValues();
-                    values.put("NAME",name);
-                    values.put("PHONE",phone);
-                    values.put("ADDRESS",address);
+                    values.put("name",name);
+                    values.put("phone",phone);
+                    values.put("address",address);
                     db.insert("contact",null,values);
                     values.clear();
                     localBroadcastManager =LocalBroadcastManager.getInstance(add_contact.this);

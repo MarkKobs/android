@@ -52,12 +52,12 @@ public class edit_contact extends AppCompatActivity implements View.OnClickListe
         c = data_index.split("\t\t\t\t\t");
         Log.d("data2",String.valueOf(data_index));
         tempname= c[0];
-        cursor=db.rawQuery("select * from CONTACT where name=?",new String[]{String.valueOf(tempname)});
+        cursor=db.rawQuery("select * from contact where name=?",new String[]{String.valueOf(tempname)});
         try{
             if(cursor.moveToFirst()) {
-                nameEdit.setText(cursor.getString(cursor.getColumnIndex("NAME")));
-                phoneEdit.setText(cursor.getString(cursor.getColumnIndex("PHONE")));
-                addressEdit.setText(cursor.getString(cursor.getColumnIndex("ADDRESS")));
+                nameEdit.setText(cursor.getString(cursor.getColumnIndex("name")));
+                phoneEdit.setText(cursor.getString(cursor.getColumnIndex("phone")));
+                addressEdit.setText(cursor.getString(cursor.getColumnIndex("address")));
             }
         }
         catch (IndexOutOfBoundsException e){
@@ -73,11 +73,11 @@ public class edit_contact extends AppCompatActivity implements View.OnClickListe
                 String phone=phoneEdit.getText().toString();
                 String address=addressEdit.getText().toString();
                 ContentValues values=new ContentValues();
-                values.put("NAME",name);
-                values.put("PHONE",phone);
-                values.put("ADDRESS",address);
+                values.put("name",name);
+                values.put("phone",phone);
+                values.put("address",address);
                 Log.d("name",String.valueOf(name));
-                db.update("CONTACT",values,"name=?",new String[]{String.valueOf(tempname)});//把数据更新成新的
+                db.update("contact",values,"name=?",new String[]{String.valueOf(tempname)});//把数据更新成新的
                 values.clear();
                 localBroadcastManager =LocalBroadcastManager.getInstance(this);
                 Intent intent = new Intent("com.mmj.contact.LOCAL_BROADCAST");
