@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="发送Toast广播"
+        android:id="@+id/btn1"
+        android:onClick="btn1_click"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="发送通知广播"
+        android:id="@+id/btn2"
+        android:onClick="btn2_click"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="发送活动广播"
+        android:id="@+id/btn3"
+        android:onClick="btn3_click"/>
+</LinearLayout>
